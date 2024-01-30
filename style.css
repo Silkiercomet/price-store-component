@@ -1,134 +1,168 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap');
-:root{
-    --Darkcyan:hsl(158,36%,37%);
-    --Cream:hsl(30,38%,92%);
-    --Verydarkblue:hsl(212,21%,14%);
-    --Darkgrayishblue:hsl(228,12%,48%);
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap");
+:root {
+  --Darkcyan: hsl(158, 36%, 37%);
+  --Cream: hsl(30, 38%, 92%);
+  --Verydarkblue: hsl(212, 21%, 14%);
+  --Darkgrayishblue: hsl(228, 12%, 48%);
 }
 /*
   1. Use a more-intuitive box-sizing model.
 */
-*, *::before, *::after {
-    box-sizing: border-box;
-  }
-  /*
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
     2. Remove default margin
   */
-  * {
-    margin: 0;
-  }
-  /*
+* {
+  margin: 0;
+}
+/*
     Typographic tweaks!
     3. Add accessible line-height
     4. Improve text rendering
   */
-  body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    font-family: 'Montserrat', sans-serif;
-    min-height: 100vh;
-    display: grid;
-    place-items: center;
-    background-color: var(--Cream);
-  }
-  /*
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Montserrat", sans-serif;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: var(--Cream);
+}
+/*
     5. Improve media defaults
   */
- figure {
-    display: block;
-    max-width: 100%;
-  }
-  /*
+figure {
+  display: block;
+  max-width: 100%;
+}
+/*
     6. Remove built-in form typography styles
   */
-  input, button, textarea, select {
-    font: inherit;
-  }
-  /*
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
     7. Avoid text overflows
   */
-  p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-  }
-  h1,strong{
-    font-family: 'Fraunces', serif;
-  }
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+h1,
+strong {
+  font-family: "Fraunces", serif;
+}
+h1 {
+  color: var(--Verydarkblue);
+}
 
-  
 /* card */
 
-.product{
-    max-width: 700px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.product {
+  max-width: 700px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 450px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.product figure {
+  background-image: url(./images/image-product-desktop.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* card */
+
+/* card text */
+
+.product__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+
+  background-color: white;
+}
+header div,
+.product__card p,
+.product__card_price span {
+  color: var(--Darkgrayishblue);
+}
+header div {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+header h1 {
+  font-size: 2.7rem;
+  line-height: 1;
+  margin-top: 10px;
+}
+.product__card_price {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.product__card_price strong {
+  color: var(--Darkcyan);
+  font-weight: 700;
+  font-size: 2rem;
+}
+.product__card_price span {
+  text-decoration: line-through;
+}
+.product__card button {
+  font-weight: 700;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  background-color: var(--Darkcyan);
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 5px;
+
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+.product__card button:hover {
+  background-color: hsla(158, 21%, 58%, 0.89);
+}
+.product__card button i {
+  transform: translateY(2.5px);
+}
+/* card text */
+
+@media screen and (max-width: 710px) {
+  .product {
+    grid-template-columns: 1fr;
+    grid-template-rows: 300px 1fr;
     min-height: 450px;
-    border-radius: 10px;
-    overflow: hidden;
-}
-.product figure{
-    background-image: url(./images/image-product-desktop.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-/* card */
-
-/* card text */
-
-.product__card{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 1.5rem;
-
-    background-color: white;
-}
-header div, .product__card p, .product__card_price span{
-    color: var(--Darkgrayishblue);
-}
-header div{
-    letter-spacing: 5px;
-    text-transform: uppercase;
-}
-header h1{
-    font-size: 2.7rem;
-    line-height: 1;
-    margin-top: 10px;
-}
-.product__card_price{
-    display: flex;
+    padding: 25px;
+    border-radius: 15px;
+  }
+  .product figure {
+    background-image: url(./images/image-product-mobile.jpg);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .product__card {
     gap: 20px;
-    align-items: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
 }
-.product__card_price strong{
-    color: var(--Darkcyan);
-    font-weight: 700;
-    font-size: 2rem;
-}
-.product__card_price span{
-    text-decoration: line-through;
-}
-.product__card button{
-    font-weight: 700;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    background-color: var(--Darkcyan);
-    color: white;
-    border: 1px solid transparent;
-    border-radius: 5px;
-
-    cursor: pointer;
-    transition: 300ms ease-in-out;
-}
-.product__card button:hover{
-    background-color: hsla(158, 21%, 58%, 0.89);
-
-}
-.product__card button i{
-    transform: translateY(2.5px);
-}
-/* card text */
-
